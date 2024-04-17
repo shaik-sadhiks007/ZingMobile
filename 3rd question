@@ -1,0 +1,17 @@
+<!-- 3. OOPS
+Define a class called Person with properties like name, age, mobile, set those values by
+taking input from the user, and print the values by getting the values using class objects. -->
+
+class Person:
+    def __init__(self):
+        self.name = input("Enter name: ")
+        self.age = input("Enter age: ")
+        self.mobile = input("Enter mobile number: ")
+    def display_details(self):
+        print("Name:", self.name)
+        print("Age:", self.age)
+        print("Mobile:", self.mobile)
+        
+person = Person()
+print("\nDetails entered:")
+person.display_details()
