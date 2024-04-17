@@ -1,0 +1,22 @@
+ <!-- 2. Maskify user mobile number
+  Write a method to maskify user mobile number except last 3 digits and print the output
+  Ex: maskify(“9988776655”) should print “#######655” -->
+  
+def maskify(n) :
+  last_digits = str(n)
+
+  try :
+
+    if(int(n) and len(last_digits) == 10) :
+      masked =  ('#' * 7) + last_digits[-3:]
+      return masked
+
+    else :
+      return "Mobile number should contain 10 digits"
+
+  except ValueError :
+    return "Please Enter a valid number"
+
+n = input("Enter mobile no. : ")
+print("masked no. is : ", maskify(n))
+
