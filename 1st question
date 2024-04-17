@@ -1,0 +1,49 @@
+<!-- 1. Decimal to Hexa, Hexa to Decimal conversion
+a. Validate the input if it’s not in decimal format print invalid input, convert to
+hexadecimal
+b. Do it vise-versa
+Note: don’t use in-built functions -->
+
+def decToHex(n):
+  try :
+    decimal = int(n)
+    hexadecimal = ''
+    hexachars = 'abcdef'
+    while decimal > 0 :
+
+      temp = decimal % 16 
+
+      if temp < 10 :
+        hexadecimal = str(decimal) + hexadecimal
+
+      else :
+        hexadecimal = hexachars[temp - 10] + hexadecimal
+      decimal = decimal // 16  
+
+    return hexadecimal
+    
+  except ValueError :
+    return 'invalid input'
+
+def hexToDec(hexadecimal):
+    hexavalues = "0123456789ABCDEF"
+    decimal = 0
+    for char in hexadecimal:
+      if (char.upper() not in hexavalues) :
+        return 'invalid input'
+
+      else :
+        decimal = 16 * decimal + hexavalues.index(char.upper())
+
+    return decimal
+
+choice = int(input("for dec to hexa type 1 otherwise 2 : "))
+
+if (choice == 1):
+  n = input("Enter a number : ")
+  print("Hexadecimal value : ", decToHex(n))
+elif(choice == 2) :
+  n = input("Enter a number : ")
+  print("Decimal value : ", hexToDec(n))
+else :
+  print("invalid input")
