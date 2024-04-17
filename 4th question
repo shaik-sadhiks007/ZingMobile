@@ -1,0 +1,41 @@
+<!-- 4. Validate the Password
+I have an app for my employees in my company, I need my employees password to be safe, so I
+want to make a Python App which says if the password is safe or no, the password is given by an
+input assigned in a variable called password, it should go into the following points: 1) Minimum
+8 characters.
+2) The alphabets must be between [a-z]
+3) At least one alphabet should be of Upper Case [A-Z]
+4) At least 1 number or digit between [0-9].
+5) At least 1 symbol like [ _ or @ or $ ]. -->
+
+def validate_password(password):
+
+    if len(password) < 8:
+        return False
+    
+    has_lowercase = False
+    has_uppercase = False
+    has_digit = False
+    has_symbol = False
+
+    for char in password:
+        if char.islower():
+            has_lowercase = True
+        elif char.isupper():
+            has_uppercase = True
+        elif char.isdigit():
+            has_digit = True
+        elif char in ['_', '@', '$']:
+            has_symbol = True
+    
+    if has_lowercase and has_uppercase and has_digit and has_symbol:
+        return True
+    else:
+        return False
+
+password = input("Enter password: ")
+
+if validate_password(password):
+    print("Password is safe.")
+else:
+    print("Password is not safe. Password should contains min. 8 characters, one uppercase, one lowercase one digit and one special character.")
